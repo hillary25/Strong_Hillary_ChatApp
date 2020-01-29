@@ -31,7 +31,7 @@ io.on('connection', function(socket) { // socket is your connection
 
         // Tell the connection manager (socket.io) to send this message to everyone
         // Anyone connected to our chat app will get this message (including the sender)
-        io.emit('new_message', { id: socket.io, message: msg })
+        io.emit('new_message', { id: socket.id, message: msg })
     })
     
     // When user refreshes, exits out chat app
