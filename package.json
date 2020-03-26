@@ -1,12 +1,12 @@
 {
-  "name": "vanrys_t_chatapp",
+  "name": "strong_hillary_chatapp",
   "version": "1.0.0",
   "description": "social media app ",
   "main": "app.js",
   "scripts": {
     "start": "node app"
   },
-  "author": "TVR",
+  "author": "HRS",
   "license": "ISC",
   "dependencies": {
     "express": "^4.16.4",

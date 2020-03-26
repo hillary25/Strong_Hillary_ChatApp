@@ -7,6 +7,16 @@ import ChatMessage from "./modules/ChatMessage.js";
 // Use the same socket framework, and instantiate it here
 const socket = io();
 
+function logConnect({sID, message, connected}){
+    //debugger;
+    console.log(sID, message);
+    vm.socketID = sID;
+    vm.connected = connected;
+
+    var newUser = new Object();
+        socket.emit('chat message', { content: "Someone new has entered the chat!", name: "Chat App", object: newUser});
+}
+
 // The packet is whatever data we send through with the connect event
 // from the server
 
@@ -22,48 +32,72 @@ function showDisconnectMessage() {
     console.log('a user disconnected');
 }
 
-function appendMessage(message) {
-    vm.messages.push(message);
+function appendMessage(message){
+    vm.messages.push(message)
 }
 
-const vm = new Vue({
-    data: {
+// Create Vue instance
+const vm = new Vue ({
+    data:{
         socketID: "",
-        message: "", // this is what we type in the browser, and it should submit on the browser window
         nickname: "",
-        messages: [
-            // {
-            //     name: "HRS",
-            //     content: "hello there!"
-            // }
-        ]
+        message: "",
+        connected: '',
+        typing: false,
+        messages: []
     },
 
+    watch: {
+        message(value) {
+          value ? socket.emit('typing', this.nickname) : socket.emit('stoptyping');
+        }
+      },
+    
+      created() {
+        socket.on('typing', (data) => {
+          console.log(data);
+          this.typing = data || 'Anonymous';
+        });
+        socket.on('stoptyping', () => {
+          this.typing = false;
+        });
+      },
+
     methods: {
-        // Emit a message evnt to the server so that it van in turn send this to anyone who is connected
-        dispatchMessage() {
+        // Emit a message event to the server so that it van in turn send this to anyone who is connected
+        dispatchMessage(){
             console.log('handle emit message');
-            
+
             // The double pipe || is an "or"
             // If the first value is set, use it. Else use whatever comes after the "or" operator
-            socket.emit('chat_message', { 
-                content: this.message,
-                name: this.nickname || "anonymous"
-            })
+          
+            var date = new Date();
+            //var n = date.getHours();
+            socket.emit('chat message', { content: this.message, name: this.nickname || "Anonymous", time: date.toLocaleString('en-US', { hour: 'numeric', minute: 'numeric', hour12: true })});
 
+            //reset the message field
             this.message = "";
-        }
+        },
+
+        isTyping() {
+            socket.emit('typing', this.nickname);
+          },
+          
     },
 
     mounted: function() {
-        console.log('vue is done mounting');
-    },
+      console.log('vue is done mounting');
+  },
 
     components: {
         newmessage: ChatMessage
     }
+    
 }).$mount("#app");
 
-socket.addEventListener('connected', setUserId);
-socket.addEventListener('disconnect', showDisconnectMessage);
-socket.addEventListener('new_message', appendMessage);
+socket.on('connected', logConnect);
+socket.addEventListener('chat message', appendMessage);
+socket.addEventListener('disconnect', appendMessage);
+// socket.addEventListener('connected', setUserId);
+// socket.addEventListener('disconnect', showDisconnectMessage);
+// socket.addEventListener('new_message', appendMessage);

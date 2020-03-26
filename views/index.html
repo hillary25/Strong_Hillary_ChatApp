@@ -1,35 +1,40 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
 	<meta charset="UTF-8">
-	<title>Socket IO Chat with Node!</title>
+	<title>Hillary's Chat App | Socket IO Chat with Node!</title>
 	<link rel="stylesheet" href="css/main.css">
-	<script src="https://unpkg.com/vue"></script>
+	<link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet">
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+	<script src="https://unpkg.com/vue"></script> 
 </head>
-
 <body>
-	<main id="app">
-		<section class="form-container">
-			<label for="nickname">Your Nickname (optional)</label>
-			<input type="text" id="nickname" class="nickname" placeholder="What is your nickname?">
+	<div class="container">
+		<main id="app">	
+			<header>
+				<h2 class="text-center">Hillary's Chat App</h2>
+				<div class="name-field">
+					<input v-model="nickname" type="text" id="nickname" class="nickname" placeholder="Nickname (optional)">
+				</div>
+			</header>	
+			
+			<section class="messages">
+				<p class="text-center">{{connected}} user(s) online</p>
+	  
+				<ul id="messages" v-for="message in messages">
+					<newmessage :msg="message"></newmessage>
+				</ul>
+			</section>
 
-			<form>
-				<label for="message">Something to say?</label>
-				<textarea v-model="message" class="message" type="text" autocomplete="off" id="textarea"></textarea>
-				<input @click.prevent="dispatchMessage" type="submit">
-			</form>
-		</section>
-
-		<section class="messages">
-			<ul id="messages">
-				<!-- render a new message component for every message -->
-				<newmessage v-for="message in messages" :msg="message"></newmessage>
-			</ul>
-		</section>
-	</main>
+			<section class="form-container">
+				<form>
+					<textarea v-model="message" class="message" type="text" autocomplete="off" id="textarea" placeholder="Type your message here..."></textarea>
+					<input type="submit" @click.prevent="dispatchMessage" value="Send">
+				</form>
+			</section>
+		</main>
+	</div>
 	<script src="/socket.io/socket.io.js"></script>
 	<script type="module" src="js/main_vm.js"></script>
 </body>
-
 </html>
