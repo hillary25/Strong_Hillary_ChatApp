@@ -5,17 +5,18 @@ export default {
     props: ['msg'],
 
     template: `
-            <p class="new-message" :class="{ 'my-message' : matchedID}">
-                <span>{{ msg.message.name }} says: </span>
+        <div>
+            <p class="new-message" :class="{ 'my-message' : matchedID }">
+                <span>{{ msg.message.name }} says:</span>
                 {{ msg.message.content }}
+                <span class='time'>{{ msg.message.time }}</span>
             </p>
+        </div>
     `,
 
-    data: function() {
-        return {
-            message: "hello from the template",
+    data: function(){
+        return{
             matchedID: this.$parent.socketID == this.msg.id
-        };
-    }
-
+        }
+    },
 }

@@ -1,18 +1,131 @@
+// Chat Layout 
+form label {
+	margin-top: 20px;
+	display: block;
+	text-align: left;
+}
+
+.name-field {
+    margin: 0 auto;
+    max-width: 900px;
+    width: 90%;
+    text-align: center;
+    margin-bottom: 1em;
+}
+
+.messages {
+	background-color: $bg-black;
+	border: 3px solid $black;
+	height: 70vh;
+	width: 90%;
+	max-width: 900px;
+    margin: 0 auto;
+    padding-top: 10px;
+    margin-bottom: 5px;
+    overflow-y: scroll;
+    border-radius: 4px;
+}
+
+p {
+    color: $white;
+}
+
+.form-container {
+	padding-top: 10px;
+	width: 90%;
+	max-width: 900px;
+    margin: 0 auto;
+    border-radius: 4px;
+}
+
+.form-container input {
+	background-color: $light-green;
+	color: $white;
+	border-radius: 4px; 
+	padding: 0.4rem; 
+	border-style: solid;
+	width: 100%;
+	border-radius: 8px;
+	transition: all 0.2s linear;
+}
+
+.form-container input:hover {
+	background-color: $white;
+	border-color: 5px solid $light-green;
+	color: $black;
+}
+
+.form-container textarea {
+	width: 100%;
+	border: 1px solid #bcbcbc;
+	background-color: $white;
+	border-radius: 8px;
+}
+
+@media screen and (min-width: 1024px) {
+	.form-container input {
+		background-color: $light-green;
+		color: $white;
+		border-radius: 4px; 
+		padding: 0.4rem; 
+		border-style: solid;
+		height: 55px;
+		float: right;
+		border-radius: 8px;
+		transition: all 0.2s linear;
+		width: auto;
+	}
+	
+	.form-container textarea {
+		width: 90%;
+		border: 1px solid #bcbcbc;
+		background-color: $white;
+		border-radius: 8px;
+	}
+}
+
+// Chat Messages
 .new-message { 
-    span { font-size: 0.8rem; display: block; margin-bottom: 2px; }
-
-    width: 45%;
-    padding: 8px 12px;
-    background-color: white; 
+	span { 
+		font-size: 0.8rem; 
+		display: block; 
+		margin-bottom: 2px;}
+	padding: 8px 12px;
+    background-color: $black; 
+    color: $white;
     border-radius: 8px;
-    margin-bottom: 1rem;
-
+	margin-bottom: 1rem;
+	margin-left: 5px;
     float:left;
     clear: both;
 }
 
 .my-message {
+	margin-right: 5px;
     float: right !important;
-    background-color: #86bf9d;
+    background-color: $dark-green;
     color: white;
+}
+
+#messages {
+	list-style-type: none; 
+	margin: 0; 
+	padding: 0;
+	li { padding: 5px 10px;	
+	}
+	li:nth-child(odd) { 
+		background: $black;
+	}
+}
+
+.name-field input {
+    font-size:18px;
+    padding:10px 10px 10px 5px;
+    border:none;
+	border-bottom:1px solid #757575;
+	margin-left: 5%;
+}
+
+.name-field input:focus {
+    outline: none;
 }
