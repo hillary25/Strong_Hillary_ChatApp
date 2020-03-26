@@ -1,11 +1,11 @@
 # Hillary's Chat Application
 This is a school assignment for authoring class. We have to create an interactive chat application using Node, socket.io and Heroku.
 
-Chat App Skin: Dark Mode.
+**Chat App Skin:** Dark Mode.
 
-Functionality: The first functionality added was adding a message when a new user joins the chat app. Second, I added how how many users are online in the chat app at one time. Lastly, I used different colours to differentiate users and their messages.
+**Functionality:** The first functionality added was adding a message when a new user joins the chat app. Second, I added how how many users are online in the chat app at one time. Lastly, I used different colours to differentiate users and their messages.
 
-Additional Enhancement: The one other enhancement I added was a timestamp indicating when a user sent their message - this is shown below the users message.
+**Additional Enhancement:** The one other enhancement I added was a timestamp indicating when a user sent their message - this is shown below the users message.
 
 ## Built With
 * [Node](https://nodejs.org/en/) - JavaScript runtime environment used to build scalable applications
@@ -46,6 +46,7 @@ $ npm install
 $ npm start
 
 # The site should be running on your localhost:3030
+```
 
 ## Acknowledgements
 * Fonts (https://fonts.google.com)
