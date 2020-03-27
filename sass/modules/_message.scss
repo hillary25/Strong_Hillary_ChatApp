@@ -1,3 +1,4 @@
+// Nickname input field
 .nickname-field {
 	margin: 0 auto;
 	width: 100%;
@@ -18,6 +19,8 @@
 		font-size: 20px;
 	}
 }
+
+// Message boxes
 .messages {
 	background-color: $background_color_2;
 	border: 5px solid #111111;
@@ -31,11 +34,15 @@
 	border-radius: 5px;
 	padding: 20px;
 }
+
+// Paragraph text
 p {
 	color: $color_2;
 	font-family: $font_family_1;
 	font-size: 18px;
 }
+
+// Message container
 .form-container {
 	padding-top: 20px;
 	padding-bottom: 20px;
@@ -69,6 +76,8 @@ p {
 		}
 	}
 }
+
+// New message sent by user
 .new-message {
 	padding: 8px 12px;
 	background-color: $background_color_6;
@@ -84,12 +93,15 @@ p {
 		margin-bottom: 2px;
 	}
 }
+
+
 .my-message {
 	margin-right: 5px;
 	float: right !important;
 	background-color: $background_color_3;
 	color: $color_2;
 }
+
 #messages {
 	list-style-type: none;
 	margin: 0;
@@ -101,9 +113,13 @@ p {
 		}
 	}
 }
+
+// Background colour
 #background {
 	background-color: $background_color_7;
 }
+
+// Top title
 #title {
 	margin-top: 30px;
 	margin-bottom: 30px;

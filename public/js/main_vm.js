@@ -22,15 +22,15 @@ function logConnect({sID, message, connected}){
 
 // This is data destructuring. Go look it up on MDN
 // Get structured data, pick it apart and only use the value we want (the ID that we want)
-function setUserId({sID}) {
-    //debugger;
-    console.log(sID);
-    vm.socketID = sID;
-}
+// function setUserId({sID}) {
+//     //debugger;
+//     console.log(sID);
+//     vm.socketID = sID;
+// }
 
-function showDisconnectMessage() {
-    console.log('a user disconnected');
-}
+// function showDisconnectMessage() {
+//     console.log('a user disconnected');
+// }
 
 function appendMessage(message){
     vm.messages.push(message)
@@ -46,22 +46,6 @@ const vm = new Vue ({
         typing: false,
         messages: []
     },
-
-    watch: {
-        message(value) {
-          value ? socket.emit('typing', this.nickname) : socket.emit('stoptyping');
-        }
-      },
-    
-      created() {
-        socket.on('typing', (data) => {
-          console.log(data);
-          this.typing = data || 'Anonymous';
-        });
-        socket.on('stoptyping', () => {
-          this.typing = false;
-        });
-      },
 
     methods: {
         // Emit a message event to the server so that it van in turn send this to anyone who is connected

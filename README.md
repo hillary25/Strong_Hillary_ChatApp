@@ -1,5 +1,5 @@
 # Hillary's Chat Application
-This is a school assignment for Fanshawe College's multimedia authoring class. We had to create an interactive chat application using Node, socket.io and Heroku. This chat app is currently running live.
+This is a school assignment for Fanshawe College's multimedia authoring class. We had to create an interactive chat application using Node, socket.io and Heroku. This chat app is currently running live at [Hillary's Chat App](https://stronghillarychatapp.herokuapp.com/).
 
 **Chat App Skin:** My chat app is specifically set to dark mode.
 
