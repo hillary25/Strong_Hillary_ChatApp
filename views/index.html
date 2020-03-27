@@ -28,7 +28,7 @@
 
 			<section class="form-container">
 				<form>
-					<textarea v-model="message" class="message" type="text" autocomplete="off" id="textarea" placeholder="Type your message here..."></textarea>
+					<textarea class="message" id="textarea" v-model="message" type="text" autocomplete="off" placeholder="Type your message here..."></textarea>
 					<input type="submit" @click.prevent="dispatchMessage" value="Send">
 				</form>
 			</section>
