@@ -45,12 +45,4 @@ io.on('connection', function(socket){ // socket is your connection
         console.log('a user has disconnected');
         connected.splice(connected.indexOf(socket), 1);
     });
-
-    socket.on('typing', (data) => {
-        io.emit('typing', data);
-    });
-
-    socket.on('stoptyping', () => {
-        io.emit('stoptyping');
-    });
 })
