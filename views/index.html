@@ -4,17 +4,17 @@
 	<meta charset="UTF-8">
 	<title>Hillary's Chat App | Socket IO Chat with Node!</title>
 	<link rel="stylesheet" href="css/main.css">
-	<link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet">
+	<link href="https://fonts.googleapis.com/css?family=Baloo+2&display=swap" rel="stylesheet">
 	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
 	<script src="https://unpkg.com/vue"></script> 
 </head>
-<body>
+<body id="background">
 	<div class="container">
 		<main id="app">	
 			<header>
-				<h2 class="text-center">Hillary's Chat App</h2>
-				<div class="name-field">
-					<input v-model="nickname" type="text" id="nickname" class="nickname" placeholder="Nickname (optional)">
+				<h2 class="text-center" id="title">Hillary's Chat App</h2>
+				<div class="nickname-field">
+					<input v-model="nickname" type="text" placeholder="Enter nickname (optional)">
 				</div>
 			</header>	
 			
