@@ -17,8 +17,7 @@ function logConnect({sID, message, connected}){
         socket.emit('chat message', { content: "Someone new has entered the chat!", name: "Chat App", object: newUser});
 }
 
-// The packet is whatever data we send through with the connect event
-// from the server
+// The packet is whatever data we send through with the connect event from the server
 
 // This is data destructuring. Go look it up on MDN
 // Get structured data, pick it apart and only use the value we want (the ID that we want)
@@ -48,7 +47,7 @@ const vm = new Vue ({
     },
 
     methods: {
-        // Emit a message event to the server so that it van in turn send this to anyone who is connected
+        // Send this message to anyone that is connected
         dispatchMessage(){
             console.log('handle emit message');
 
@@ -56,17 +55,11 @@ const vm = new Vue ({
             // If the first value is set, use it. Else use whatever comes after the "or" operator
           
             var date = new Date();
-            //var n = date.getHours();
             socket.emit('chat message', { content: this.message, name: this.nickname || "Anonymous", time: date.toLocaleString('en-US', { hour: 'numeric', minute: 'numeric', hour12: true })});
 
-            //reset the message field
+            // Reset the message here
             this.message = "";
         },
-
-        isTyping() {
-            socket.emit('typing', this.nickname);
-          },
-          
     },
 
     mounted: function() {
